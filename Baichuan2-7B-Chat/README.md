@@ -16,11 +16,10 @@ bash scripts/clone_models.sh baichuan
 python Baichuan2-7B-Chat/run_baichuan.py
 ```
 
-运行完成后，将终端或 Notebook 输出截图放入 `screenshots/`，并把关键回答整理到 `outputs/baichuan_results.md`。
+运行完成后，关键回答会自动整理到 `outputs/`。
 
 ## 文件说明
 
 - `run_baichuan.py`：Baichuan 问答测试脚本。
 - `run_baichuan.ipynb`：ModelScope Notebook 执行模板。
 - `outputs/`：保存运行结果。
-- `screenshots/`：保存问答截图。

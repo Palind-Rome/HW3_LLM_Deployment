@@ -16,11 +16,10 @@ bash scripts/clone_models.sh chatglm
 python ChatGLM3-6B/run_chatglm.py
 ```
 
-运行完成后，将终端或 Notebook 输出截图放入 `screenshots/`，并把关键回答整理到 `outputs/chatglm_results.md`。
+运行完成后，关键回答自动整理到 `outputs/chatglm_results.md`。
 
 ## 文件说明
 
 - `run_chatglm.py`：ChatGLM 问答测试脚本。
 - `run_chatglm.ipynb`：ModelScope Notebook 执行模板。
 - `outputs/`：保存运行结果。
-- `screenshots/`：保存问答截图。

@@ -45,7 +45,9 @@ def main() -> None:
     model = AutoModelForCausalLM.from_pretrained(
         str(MODEL_PATH),
         trust_remote_code=True,
-        torch_dtype=torch.float32,
+        torch_dtype=torch.float16,
+        low_cpu_mem_usage=True,
+        offload_state_dict=True,
     ).eval()
 
     jsonl_path = OUTPUT_DIR / "baichuan_results.jsonl"
