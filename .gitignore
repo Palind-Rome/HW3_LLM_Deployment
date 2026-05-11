@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+
+# Local model weights and caches should not be committed.
+models/
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# OS/editor noise.
+.DS_Store
+Thumbs.db
