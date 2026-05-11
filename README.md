@@ -2,7 +2,7 @@
 
 《人工智能导论》第三次作业：大语言模型部署体验。
 
-本仓库用于在 ModelScope 魔搭 Notebook CPU 环境中部署并测试 2-3 个开源大语言模型，记录每个模型的代码、Notebook、输出和截图，并在报告中完成横向对比分析。
+本仓库用于在 ModelScope 魔搭 Notebook CPU 环境中部署并测试 3 个开源大语言模型，记录每个模型的代码、Notebook、输出和截图，并在报告中完成横向对比分析。
 
 项目公开可访问链接：
 
@@ -20,7 +20,7 @@ https://github.com/Palind-Rome/HW3_LLM_Deployment
 ```text
 .
 ├── README.md
-├── 作业报告.md
+├── 实验报告.md
 ├── requirements.txt
 ├── data/
 │   └── prompts.json
@@ -28,32 +28,37 @@ https://github.com/Palind-Rome/HW3_LLM_Deployment
 │   ├── clone_models.sh
 │   └── setup_cpu_env.sh
 ├── screenshots/
+│   ├── image-*.png
 │   └── .gitkeep
 ├── Qwen-7B-Chat/
 │   ├── README.md
 │   ├── run_qwen.py
 │   ├── run_qwen.ipynb
 │   ├── outputs/
+│   │   ├── qwen_results.jsonl
+│   │   └── qwen_results.md
 │   └── screenshots/
 ├── ChatGLM3-6B/
 │   ├── README.md
 │   ├── run_chatglm.py
 │   ├── run_chatglm.ipynb
 │   ├── outputs/
+│   │   ├── chatglm_results.jsonl
+│   │   └── chatglm_results.md
 │   └── screenshots/
 └── Baichuan2-7B-Chat/
     ├── README.md
     ├── run_baichuan.py
     ├── run_baichuan.ipynb
     ├── outputs/
+    │   ├── baichuan_results.jsonl
+    │   └── baichuan_results.md
     └── screenshots/
 ```
 
-说明：根目录下的三个模型文件夹是作业展示主体。真正的模型权重很大，不放入 GitHub 仓库，统一下载到 ModelScope Notebook 的 `/mnt/data`。
+说明：根目录下的三个模型文件夹是作业展示主体，分别保存对应模型的运行脚本、Notebook 模板和输出结果。实验截图目前统一放在根目录 `screenshots/` 下，并在 `实验报告.md` 中引用。真正的模型权重很大，不放入 GitHub 仓库，统一下载到 ModelScope Notebook 的 `/mnt/data`。
 
 ## ModelScope 快速流程
-
-以下步骤对应老师 PDF 中的流程。ModelScope CPU 资源空闲 1 小时可能释放，模型较大，建议一次只下载和运行一个模型。
 
 ### 1. 平台准备
 
@@ -70,15 +75,13 @@ git clone https://github.com/Palind-Rome/HW3_LLM_Deployment.git
 cd HW3_LLM_Deployment
 ```
 
-这里记得截图，报告中需要放 git clone 或部署完成截图。
-
 ### 3. 安装依赖
 
 ```bash
 bash scripts/setup_cpu_env.sh
 ```
 
-如果平台没有 conda，可按老师 PDF 先安装 Miniconda，再创建并激活环境：
+如果平台没有 conda，可先安装 Miniconda，再创建并激活环境：
 
 ```bash
 cd /opt/conda/envs
@@ -118,23 +121,10 @@ python Baichuan2-7B-Chat/run_baichuan.py
 
 ## 输出与截图
 
-- 根目录 `screenshots/`：放 git clone、依赖安装、模型下载等整体部署截图。
-- `Qwen-7B-Chat/screenshots/`：放 Qwen 问答结果截图。
-- `ChatGLM3-6B/screenshots/`：放 ChatGLM 问答结果截图。
-- `Baichuan2-7B-Chat/screenshots/`：放 Baichuan 问答结果截图。
-- 每个模型目录的 `outputs/`：脚本会生成 JSONL 原始结果和 Markdown 摘录，方便填报告。
-
-## 推荐截图清单
-
-- `screenshots/01_git_clone.png`：git clone 成功截图。
-- `screenshots/02_environment.png`：依赖安装或模型下载截图。
-- `Qwen-7B-Chat/screenshots/01_qwen_result.png`：Qwen 问答结果截图。
-- `ChatGLM3-6B/screenshots/01_chatglm_result.png`：ChatGLM 问答结果截图。
-- `Baichuan2-7B-Chat/screenshots/01_baichuan_result.png`：Baichuan 问答结果截图。
-
-## 报告提交提醒
-
-- 截止时间：5 月 31 日 23:59。
-- 文档命名格式：`hw3_学号_姓名`。
-- 评分重点：项目公开可访问链接 8 分，报告 12 分。
-- 报告需包含部署截图、问答截图、横向对比分析。
+- 根目录 `screenshots/`：保存 ModelScope 平台、环境配置、模型下载、git clone、运行过程和问答结果截图。
+- `Qwen-7B-Chat/outputs/qwen_results.jsonl`：Qwen 原始问答结果。
+- `Qwen-7B-Chat/outputs/qwen_results.md`：Qwen 报告摘录版结果。
+- `ChatGLM3-6B/outputs/chatglm_results.jsonl`：ChatGLM 原始问答结果。
+- `ChatGLM3-6B/outputs/chatglm_results.md`：ChatGLM 报告摘录版结果。
+- `Baichuan2-7B-Chat/outputs/baichuan_results.jsonl`：Baichuan 原始问答结果。
+- `Baichuan2-7B-Chat/outputs/baichuan_results.md`：Baichuan 报告摘录版结果。
